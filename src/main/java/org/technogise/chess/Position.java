@@ -34,7 +34,7 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position [" +
+        return "[" +
                 " x=" + x +
                 ", y=" + y +
                 " ]";
