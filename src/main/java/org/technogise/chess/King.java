@@ -3,9 +3,13 @@ package org.technogise.chess;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Concrete class to simulate King on the board
+ */
 public class King extends Piece {
 
     public King(int x, int y, ChessBoard board) {
+        // Define the type and max steps for this class
         super(Type.KING, x, y, 1, 1, 1, board);
     }
 
@@ -13,7 +17,7 @@ public class King extends Piece {
     public Set<Position> getAllMoveablePositions() {
         Set<Position> moveablePositions = new HashSet<>();
 
-        // Vertical positions
+        // Vertical positions (upwards)
         int count = 0;
         Position next = new Position(getPosition().getX(), getPosition().getY() + 1);
         while (count < getVerticalSteps() && next.getY() < getBoard().getYLength()) {
@@ -22,6 +26,7 @@ public class King extends Piece {
             count++;
         }
 
+        // Vertical positions (downwards)
         count = 0;
         next = new Position(getPosition().getX(), getPosition().getY() - 1);
         while (count < getVerticalSteps() && next.getY() >= 0) {
@@ -30,7 +35,7 @@ public class King extends Piece {
             count++;
         }
 
-        // Horizontal positions
+        // Horizontal positions (right)
         count = 0;
         next = new Position(getPosition().getX() + 1, getPosition().getY());
         while (count < getHorizontalSteps() && next.getX() < getBoard().getXLength()) {
@@ -39,6 +44,7 @@ public class King extends Piece {
             count++;
         }
 
+        // Horizontal positions (left)
         count = 0;
         next = new Position(getPosition().getX() - 1, getPosition().getY());
         while (count < getHorizontalSteps() && next.getX() >= 0) {
@@ -47,7 +53,7 @@ public class King extends Piece {
             count++;
         }
 
-        // Diagonal positions
+        // Diagonal positions (up right)
         count = 0;
         next = new Position(getPosition().getX() + 1, getPosition().getY() + 1);
         while (count < getDiagonalSteps()
@@ -58,6 +64,7 @@ public class King extends Piece {
             count++;
         }
 
+        // Diagonal positions (up left)
         count = 0;
         next = new Position(getPosition().getX() - 1, getPosition().getY() + 1);
         while (count < getDiagonalSteps()
@@ -68,6 +75,7 @@ public class King extends Piece {
             count++;
         }
 
+        // Diagonal positions (down right)
         count = 0;
         next = new Position(getPosition().getX() + 1, getPosition().getY() - 1);
         while (count < getDiagonalSteps()
@@ -78,6 +86,7 @@ public class King extends Piece {
             count++;
         }
 
+        // Diagonal positions (down left)
         count = 0;
         next = new Position(getPosition().getX() - 1, getPosition().getY() - 1);
         while (count < getDiagonalSteps()

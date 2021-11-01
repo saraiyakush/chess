@@ -3,9 +3,13 @@ package org.technogise.chess;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Concrete class to simulate Pawn on the board
+ */
 public class Pawn extends Piece {
 
     public Pawn(int x, int y, ChessBoard board) {
+        // Define the type and max steps for this class
         super(Type.PAWN, x, y, 1, 0, 0, board);
     }
 

@@ -6,6 +6,11 @@ import java.util.Scanner;
 
 public class ChessBoardApplication {
 
+    /**
+     * Validates the given string
+     * @param inputStr Input from console
+     * @return `true` if all checks pass, `false` otherwise.
+     */
     private static boolean validateInput(String inputStr) {
 
         String validInput = "Input Example: KING 2 5 (Type X-Position Y-Position in that order)";
@@ -49,7 +54,7 @@ public class ChessBoardApplication {
 
         // Initialize board
         ChessBoard board = new ChessBoard(8, 8);
-        String[] input = inputStr.split(" ");
+        String[] input = inputStr.split(" ");   // Space as separator
 
         // Initialize a piece on the board
         try {

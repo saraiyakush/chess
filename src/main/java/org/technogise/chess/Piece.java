@@ -2,9 +2,12 @@ package org.technogise.chess;
 
 import java.util.Set;
 
+/**
+ * Abstract class Piece to simulate any piece on the board
+ */
 public abstract class Piece {
 
-    private Type type;  // org.technogise.chess.King, org.technogise.chess.Queen, Oawn etc.
+    private Type type;  // King, Queen, Pawn etc.
     private Position position;  // X and Y position on the board
     private ChessBoard board;   // The board where this piece is placed
 

@@ -3,9 +3,13 @@ package org.technogise.chess;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Concrete class to simulate Queen on the board
+ */
 public class Queen extends Piece {
 
     public Queen(int x, int y, ChessBoard board) {
+        // Define the type and max steps for this class
         super(Type.QUEEN, x, y, -1, -1, -1, board);
     }
 
@@ -13,7 +17,7 @@ public class Queen extends Piece {
     public Set<Position> getAllMoveablePositions() {
         Set<Position> moveablePositions = new HashSet<>();
 
-        // Vertical positions
+        // Vertical positions (upwards)
         int count = 0;
         Position next = new Position(getPosition().getX(), getPosition().getY() + 1);
         while (next.getY() < getBoard().getYLength()) {
@@ -22,6 +26,7 @@ public class Queen extends Piece {
             count++;
         }
 
+        // Vertical positions (downwards)
         count = 0;
         next = new Position(getPosition().getX(), getPosition().getY() - 1);
         while (next.getY() >= 0) {
@@ -30,7 +35,7 @@ public class Queen extends Piece {
             count++;
         }
 
-        // Horizontal positions
+        // Horizontal positions (right)
         count = 0;
         next = new Position(getPosition().getX() + 1, getPosition().getY());
         while (next.getX() < getBoard().getXLength()) {
@@ -39,6 +44,7 @@ public class Queen extends Piece {
             count++;
         }
 
+        // Horizontal positions (left)
         count = 0;
         next = new Position(getPosition().getX() - 1, getPosition().getY());
         while (next.getX() >= 0) {
@@ -47,7 +53,7 @@ public class Queen extends Piece {
             count++;
         }
 
-        // Diagonal positions
+        // Diagonal positions (up right)
         count = 0;
         next = new Position(getPosition().getX() + 1, getPosition().getY() + 1);
         while (next.getX() < getBoard().getXLength()
@@ -57,6 +63,7 @@ public class Queen extends Piece {
             count++;
         }
 
+        // Diagonal positions (up left)
         count = 0;
         next = new Position(getPosition().getX() - 1, getPosition().getY() + 1);
         while (next.getX() >= 0
@@ -66,6 +73,7 @@ public class Queen extends Piece {
             count++;
         }
 
+        // Diagonal positions (down right)
         count = 0;
         next = new Position(getPosition().getX() + 1, getPosition().getY() - 1);
         while (next.getX() < getBoard().getXLength()
@@ -75,6 +83,7 @@ public class Queen extends Piece {
             count++;
         }
 
+        // Diagonal positions (down left)
         count = 0;
         next = new Position(getPosition().getX() - 1, getPosition().getY() - 1);
         while (next.getX() >= 0
