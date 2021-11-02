@@ -10,13 +10,25 @@ public class PieceFactory {
         }
 
         if (type.equals(Type.PAWN)) {
-            return new Pawn(x, y, board);
+            return Pawn.Builder.getInstance()
+                    .setxPosition(x)
+                    .setyPosition(y)
+                    .setBoard(board)
+                    .build();
         }
         else if (type.equals(Type.KING)) {
-            return new King(x, y, board);
+            return King.Builder.getInstance()
+                    .setxPosition(x)
+                    .setyPosition(y)
+                    .setBoard(board)
+                    .build();
         }
         else if (type.equals(Type.QUEEN)) {
-            return new Queen(x, y, board);
+            return Queen.Builder.getInstance()
+                    .setxPosition(x)
+                    .setyPosition(y)
+                    .setBoard(board)
+                    .build();
         }
         return null;
     }

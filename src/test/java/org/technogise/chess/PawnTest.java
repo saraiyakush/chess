@@ -14,7 +14,11 @@ public class PawnTest {
 
     @Test
     public void getAllMoveablePositions_returnsValidPositionsIfValidInput() {
-        Piece pawn = new Pawn(2, 5, new ChessBoard(8, 8));
+        Piece pawn = Pawn.Builder.getInstance()
+                .setxPosition(2)
+                .setyPosition(5)
+                .setBoard(new ChessBoard(8, 8))
+                .build();
         HashSet<Position> expectedPositions = new HashSet<>();
         expectedPositions.add(new Position(2, 6));
 
@@ -23,7 +27,11 @@ public class PawnTest {
 
     @Test
     public void getAllMoveablePositions_doesNotReturnInvalidPositions() {
-        Piece pawn = new Pawn(2, 5, new ChessBoard(8, 8));
+        Piece pawn = Pawn.Builder.getInstance()
+                .setxPosition(2)
+                .setyPosition(5)
+                .setBoard(new ChessBoard(8, 8))
+                .build();
 
         HashSet<Position> invalidPositions = new HashSet<>();
         for (int i = 0; i < 8; i++) {

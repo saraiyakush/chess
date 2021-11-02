@@ -8,9 +8,59 @@ import java.util.Set;
  */
 public class King extends Piece {
 
-    public King(int x, int y, ChessBoard board) {
+    public King(Builder builder) {
         // Define the type and max steps for this class
-        super(Type.KING, x, y, 1, 1, 1, board);
+        super(Type.KING,
+                builder.xPosition, builder.yPosition,
+                builder.verticalSteps, builder.horizontalSteps, builder.diagonalSteps,
+                builder.board);
+    }
+
+    public static class Builder {
+        private int xPosition;
+        private int yPosition;
+        private int verticalSteps = 1;
+        private int horizontalSteps = 1;
+        private int diagonalSteps = 1;
+        private ChessBoard board;
+
+        public static Builder getInstance() {
+            return new Builder();
+        }
+
+        public Builder setxPosition(int xPosition) {
+            this.xPosition = xPosition;
+            return this;
+        }
+
+        public Builder setyPosition(int yPosition) {
+            this.yPosition = yPosition;
+            return this;
+        }
+
+        public Builder setVerticalSteps(int verticalSteps) {
+            this.verticalSteps = verticalSteps;
+            return this;
+        }
+
+        public Builder setHorizontalSteps(int horizontalSteps) {
+            this.horizontalSteps = horizontalSteps;
+            return this;
+        }
+
+        public Builder setDiagonalSteps(int diagonalSteps) {
+            this.diagonalSteps = diagonalSteps;
+            return this;
+        }
+
+        public Builder setBoard(ChessBoard board) {
+            this.board = board;
+            return this;
+        }
+
+        public King build() {
+            return new King(this);
+        }
     }
 
     @Override
