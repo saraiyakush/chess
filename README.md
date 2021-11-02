@@ -28,7 +28,6 @@ This is a console application that simulates a chessboard and the movements of t
 | | | | | | |____Piece.java   <-- Abstract class piece
 | | | | | | |____Pawn.java    <-- Concrete class Pawn
 | | | | | | |____exception
-| | | | | | | |____InvalidPieceException.java
 | | | | | | | |____InvalidPositionException.java
 | |____test
 | | |____java
