@@ -40,6 +40,27 @@ public class ChessBoardApplication {
         return true;
     }
 
+    private static void play(String[] inputs) {
+        // Initialize board
+        ChessBoard board = new ChessBoard(8, 8);
+
+        // Initialize a piece on the board
+        try {
+            Piece piece = PieceFactory.getPiece(Type.valueOf(inputs[0]), Integer.parseInt(inputs[1]), Integer.parseInt(inputs[2]), board);
+
+            // Print all positions
+            if (piece != null) {
+                piece.getAllMoveablePositions().forEach(System.out::println);
+            }
+        } catch (IllegalArgumentException e) {
+            System.err.println("Invalid piece type -> " + inputs[0]);
+            System.out.println("Valid pieces: KING, QUEEN, PAWN");
+        } catch (InvalidPositionException pe) {
+            System.err.println("Invalid position on board -> [" + inputs[1] + ", " + inputs[2] + "]");
+            System.out.println("Valid positions: [0, 0] -> [7, 7]");
+        }
+    }
+
 
     public static void main(String[] args) {
 
@@ -52,25 +73,9 @@ public class ChessBoardApplication {
             return;
         }
 
-        // Initialize board
-        ChessBoard board = new ChessBoard(8, 8);
         String[] input = inputStr.split(" ");   // Space as separator
+        play(input);
 
-        // Initialize a piece on the board
-        try {
-            Piece piece = PieceFactory.getPiece(Type.valueOf(input[0]), Integer.parseInt(input[1]), Integer.parseInt(input[2]), board);
-
-            // Print all positions
-            if (piece != null) {
-                piece.getAllMoveablePositions().forEach(System.out::println);
-            }
-        } catch (IllegalArgumentException e) {
-            System.err.println("Invalid piece type -> " + input[0]);
-            System.out.println("Valid pieces: KING, QUEEN, PAWN");
-        } catch (InvalidPositionException pe) {
-            System.err.println("Invalid position on board -> [" + input[1] + ", " + input[2] + "]");
-            System.out.println("Valid positions: [0, 0] -> [7, 7]");
-        }
     }
 
 }
