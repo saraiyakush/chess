@@ -7,12 +7,13 @@ import org.junit.runners.JUnit4;
 import java.util.HashSet;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 @RunWith(JUnit4.class)
 public class QueenTest {
 
     @Test
-    public void returnsValidPositionsIfValidInput() {
+    public void getAllMoveablePositions_returnsValidPositionsIfValidInput() {
         Piece queen = new Queen(2, 5, new ChessBoard(8, 8));
 
         HashSet<Position> expectedPositions = new HashSet<>();
@@ -47,5 +48,45 @@ public class QueenTest {
 
 
         assertEquals(expectedPositions, queen.getAllMoveablePositions());
+    }
+
+    @Test
+    public void getAllMoveablePositions_doesNotReturnInvalidPositions() {
+        Piece queen = new Queen(2, 5, new ChessBoard(8, 8));
+
+        HashSet<Position> invalidPositions = new HashSet<>();
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if ( (i != 2 || j != 6)
+                        && (i != 2 || j != 7)
+                        && (i != 2 || j != 4)
+                        && (i != 2 || j != 3)
+                        && (i != 2 || j != 2)
+                        && (i != 2 || j != 1)
+                        && (i != 2 || j != 0)
+                        && (i != 0 || j != 5)
+                        && (i != 1 || j != 5)
+                        && (i != 3 || j != 5)
+                        && (i != 4 || j != 5)
+                        && (i != 5 || j != 5)
+                        && (i != 6 || j != 5)
+                        && (i != 7 || j != 5)
+                        && (i != 3 || j != 6)
+                        && (i != 4 || j != 7)
+                        && (i != 1 || j != 4)
+                        && (i != 0 || j != 3)
+                        && (i != 1 || j != 6)
+                        && (i != 0 || j != 7)
+                        && (i != 3 || j != 4)
+                        && (i != 4 || j != 3)
+                        && (i != 5 || j != 2)
+                        && (i != 6 || j != 1)
+                        && (i != 7 || j != 0)) {
+                    invalidPositions.add(new Position(i, j));
+                }
+            }
+        }
+
+        assertFalse(queen.getAllMoveablePositions().stream().anyMatch(invalidPositions::contains));
     }
 }
