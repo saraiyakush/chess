@@ -30,6 +30,9 @@ public class PieceFactory {
                     .setBoard(board)
                     .build();
         }
+        else if (type.equals(Type.PEASANT)) {
+            return new Peasant(x, y, board);
+        }
         return null;
     }
 }

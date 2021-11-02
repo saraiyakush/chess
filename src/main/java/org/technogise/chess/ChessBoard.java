@@ -1,5 +1,8 @@
 package org.technogise.chess;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ChessBoard {
 
     private final int xLength;
@@ -19,5 +22,12 @@ public class ChessBoard {
 
     public int getYLength() {
         return yLength;
+    }
+
+    public Set<Position> getOccupiedPositions() {
+        Set<Position> occupiedPositions = new HashSet<>();
+        occupiedPositions.add(new Position(3, 3));
+
+        return occupiedPositions;
     }
 }

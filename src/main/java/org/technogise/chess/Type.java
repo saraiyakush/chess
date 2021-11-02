@@ -6,5 +6,6 @@ public enum Type {
     KING,
     ROOK,
     BISHOP,
-    HORSE
+    HORSE,
+    PEASANT
 }

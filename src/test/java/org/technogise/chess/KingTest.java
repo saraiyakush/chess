@@ -16,21 +16,21 @@ public class KingTest {
     public void getAllMoveablePositions_returnsValidPositionsIfValidInput() {
         Piece king = King.Builder.getInstance()
                 .setxPosition(2)
-                .setyPosition(5)
+                .setyPosition(4)
                 .setBoard(new ChessBoard(8, 8))
                 .build();
 
         HashSet<Position> expectedPositions = new HashSet<>();
-        expectedPositions.add(new Position(2, 6));
-        expectedPositions.add(new Position(2, 4));
+        expectedPositions.add(new Position(2, 5));
+        expectedPositions.add(new Position(2, 3));
         expectedPositions.add(new Position(3, 5));
         expectedPositions.add(new Position(1, 5));
-        expectedPositions.add(new Position(3, 6));
-        expectedPositions.add(new Position(1, 6));
         expectedPositions.add(new Position(3, 4));
         expectedPositions.add(new Position(1, 4));
+        expectedPositions.add(new Position(1, 3));
 
         assertEquals(expectedPositions, king.getAllMoveablePositions());
+        assertEquals(expectedPositions.size(), king.getAllMoveablePositions().size());
     }
 
     @Test

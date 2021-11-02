@@ -70,7 +70,9 @@ public class King extends Piece {
         // Vertical positions (upwards)
         int count = 0;
         Position next = new Position(getPosition().getX(), getPosition().getY() + 1);
-        while (count < getVerticalSteps() && next.getY() < getBoard().getYLength()) {
+        while (count < getVerticalSteps()
+                && next.getY() < getBoard().getYLength()
+                && !getBoard().getOccupiedPositions().contains(next)) {
             moveablePositions.add(new Position(getPosition().getX(), next.getY()));
             next = new Position(next.getX(), next.getY() + 1);
             count++;
@@ -79,7 +81,9 @@ public class King extends Piece {
         // Vertical positions (downwards)
         count = 0;
         next = new Position(getPosition().getX(), getPosition().getY() - 1);
-        while (count < getVerticalSteps() && next.getY() >= 0) {
+        while (count < getVerticalSteps()
+                && next.getY() >= 0
+                && !getBoard().getOccupiedPositions().contains(next)) {
             moveablePositions.add(new Position(getPosition().getX(), next.getY()));
             next = new Position(next.getX(), next.getY() - 1);
             count++;
@@ -88,7 +92,9 @@ public class King extends Piece {
         // Horizontal positions (right)
         count = 0;
         next = new Position(getPosition().getX() + 1, getPosition().getY());
-        while (count < getHorizontalSteps() && next.getX() < getBoard().getXLength()) {
+        while (count < getHorizontalSteps()
+                && next.getX() < getBoard().getXLength()
+                && !getBoard().getOccupiedPositions().contains(next)) {
             moveablePositions.add(new Position(next.getX(), getPosition().getY()));
             next = new Position(next.getX() + 1, next.getY());
             count++;
@@ -97,7 +103,9 @@ public class King extends Piece {
         // Horizontal positions (left)
         count = 0;
         next = new Position(getPosition().getX() - 1, getPosition().getY());
-        while (count < getHorizontalSteps() && next.getX() >= 0) {
+        while (count < getHorizontalSteps()
+                && next.getX() >= 0
+                && !getBoard().getOccupiedPositions().contains(next)) {
             moveablePositions.add(new Position(next.getX(), getPosition().getY()));
             next = new Position(next.getX() - 1, next.getY());
             count++;
@@ -108,7 +116,8 @@ public class King extends Piece {
         next = new Position(getPosition().getX() + 1, getPosition().getY() + 1);
         while (count < getDiagonalSteps()
                 && next.getX() < getBoard().getXLength()
-                && next.getY() < getBoard().getYLength()) {
+                && next.getY() < getBoard().getYLength()
+                && !getBoard().getOccupiedPositions().contains(next)) {
             moveablePositions.add(new Position(next.getX(), next.getY()));
             next = new Position(next.getX() + 1, next.getY() + 1);
             count++;
@@ -119,7 +128,8 @@ public class King extends Piece {
         next = new Position(getPosition().getX() - 1, getPosition().getY() + 1);
         while (count < getDiagonalSteps()
                 && next.getX() >= 0
-                && next.getY() < getBoard().getYLength()) {
+                && next.getY() < getBoard().getYLength()
+                && !getBoard().getOccupiedPositions().contains(next)) {
             moveablePositions.add(new Position(next.getX(), next.getY()));
             next = new Position(next.getX() - 1, next.getY() + 1);
             count++;
@@ -130,7 +140,8 @@ public class King extends Piece {
         next = new Position(getPosition().getX() + 1, getPosition().getY() - 1);
         while (count < getDiagonalSteps()
                 && next.getX() < getBoard().getXLength()
-                && next.getY() >= 0) {
+                && next.getY() >= 0
+                && !getBoard().getOccupiedPositions().contains(next)) {
             moveablePositions.add(new Position(next.getX(), next.getY()));
             next = new Position(next.getX() + 1, next.getY() - 1);
             count++;
@@ -141,7 +152,8 @@ public class King extends Piece {
         next = new Position(getPosition().getX() - 1, getPosition().getY() - 1);
         while (count < getDiagonalSteps()
                 && next.getX() >= 0
-                && next.getY() >= 0) {
+                && next.getY() >= 0
+                && !getBoard().getOccupiedPositions().contains(next)) {
             moveablePositions.add(new Position(next.getX(), next.getY()));
             next = new Position(next.getX() - 1, next.getY() - 1);
             count++;

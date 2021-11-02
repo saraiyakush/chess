@@ -42,7 +42,7 @@ public class ChessBoardApplication {
 
     private static void play(String[] inputs) {
         // Initialize board
-        ChessBoard board = new ChessBoard(8, 8);
+        ChessBoard board = new ChessBoard(10, 10);
 
         // Initialize a piece on the board
         try {
