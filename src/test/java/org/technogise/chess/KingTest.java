@@ -59,4 +59,13 @@ public class KingTest {
 
         assertFalse(king.getAllMoveablePositions().stream().anyMatch(invalidPositions::contains));
     }
+
+    @Test
+    public void builder_returnsValidKing() {
+        Piece king = King.Builder.getInstance().build();
+        assertEquals(Type.KING, king.getType());
+        assertEquals(1, king.getVerticalSteps());
+        assertEquals(1, king.getHorizontalSteps());
+        assertEquals(1, king.getDiagonalSteps());
+    }
 }

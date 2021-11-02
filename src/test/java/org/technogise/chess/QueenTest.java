@@ -97,4 +97,13 @@ public class QueenTest {
 
         assertFalse(queen.getAllMoveablePositions().stream().anyMatch(invalidPositions::contains));
     }
+
+    @Test
+    public void builder_returnsValidQueen() {
+        Piece queen = Queen.Builder.getInstance().build();
+        assertEquals(Type.QUEEN, queen.getType());
+        assertEquals(-1, queen.getVerticalSteps());
+        assertEquals(-1, queen.getHorizontalSteps());
+        assertEquals(-1, queen.getDiagonalSteps());
+    }
 }

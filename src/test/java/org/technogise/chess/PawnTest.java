@@ -44,4 +44,13 @@ public class PawnTest {
 
         assertFalse(pawn.getAllMoveablePositions().stream().anyMatch(invalidPositions::contains));
     }
+
+    @Test
+    public void builder_returnsValidPawn() {
+        Piece pawn = Pawn.Builder.getInstance().build();
+        assertEquals(Type.PAWN, pawn.getType());
+        assertEquals(1, pawn.getVerticalSteps());
+        assertEquals(0, pawn.getHorizontalSteps());
+        assertEquals(0, pawn.getDiagonalSteps());
+    }
 }
