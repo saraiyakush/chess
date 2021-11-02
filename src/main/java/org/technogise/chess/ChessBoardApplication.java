@@ -49,7 +49,7 @@ public class ChessBoardApplication {
 
         // Validate input
         if (!validateInput(inputStr)) {
-            System.exit(1);
+            return;
         }
 
         // Initialize board

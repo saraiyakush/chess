@@ -24,4 +24,14 @@ public class PieceFactoryTest {
     public void getPiece_throwsInvalidPositionExceptionIfNotValidPositionOnBoard() {
         assertThrows(InvalidPositionException.class, () -> PieceFactory.getPiece(Type.KING, 7, 9, new ChessBoard(8, 8)));
     }
+
+    @Test
+    public void getPiece_throwsIllegalArgumentExceptionIfNotValidPiece() {
+        assertThrows(IllegalArgumentException.class, () -> PieceFactory.getPiece(Type.valueOf("UNKNOWN"), 2, 2, new ChessBoard(8, 8)));
+    }
+
+    @Test
+    public void getPiece_throwsIllegalArgumentExceptionIfLowerCase() {
+        assertThrows(IllegalArgumentException.class, () -> PieceFactory.getPiece(Type.valueOf("king"), 2, 2, new ChessBoard(8, 8)));
+    }
 }
